@@ -20,6 +20,25 @@ Ktor ist in der hauseigenen Programmiersprache Kotlin verfasst.
 
 <hr>
 
+## Hello World
+The Hello World of Ktor is small enough to fit in a tweet:
+```
+fun main() {
+    embeddedServer(Netty, port = 8080) {
+        routing {
+            get("/") {
+                call.respondText("Hello World!")
+            }
+        }
+    }.start(wait = true)
+}
+```
+To go beyond that, the website provides a Quickstart guide, extensive documentation for writing servers and clients, and many sample projects. If you prefer videos, Ryan Harter’s KotlinConf 2018 talk is a great introduction to using Ktor on the backend.
+
+Hop over to https://start.ktor.io/ to get a project template, check out the docs, and your new backend will be up and running in no time! If you need help, the friendly folks on the #ktor channel on Kotlin Slack are there for you.
+
+Have a nice Ktor!
+
 ## Neues Projekt erstellen
 
 Es gibt zwei Möglichkeiten, um ein vollständiges Grundgerüst für eine neue Ktor Applikation zu erstellen.
