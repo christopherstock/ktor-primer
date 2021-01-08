@@ -3,7 +3,6 @@ package de.mayflower
 import io.ktor.application.*
 import io.ktor.client.engine.cio.*
 import io.ktor.response.*
-import io.ktor.request.*
 import io.ktor.routing.*
 import io.ktor.http.*
 import io.ktor.html.*
@@ -14,20 +13,42 @@ import io.ktor.features.*
 import com.fasterxml.jackson.databind.*
 import io.ktor.jackson.*
 import io.ktor.client.*
+import io.ktor.client.features.*
 import io.ktor.client.features.logging.*
-import io.ktor.client.features.UserAgent
-import io.ktor.client.features.BrowserUserAgent
+import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import org.slf4j.event.Level
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
+/*
+fun main(args: Array<String>) {
+    embeddedServer(
+        Netty,
+        watchPaths = listOf("workspaces/kotlin"),
+        port = 1234,
+        module = Application::module
+        // autoreload = true
+    ).apply { start(wait = true) }
+}
+*/
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
-fun Application.module(testing: Boolean = false) {
+fun Application.module(testing: Boolean = true) {
+
+    install(CallLogging) {
+        level = Level.DEBUG
+    }
+
     install(Authentication) {
         basic("myBasicAuth") {
             realm = "Ktor Server"
-            validate { if (it.name == "test" && it.password == "password") UserIdPrincipal(it.name) else null }
+            validate {
+                if (
+                    it.name == "test"
+                    && it.password == "password"
+                ) UserIdPrincipal(it.name) else null
+            }
         }
     }
 
@@ -41,9 +62,9 @@ fun Application.module(testing: Boolean = false) {
     }
 
     val client = HttpClient(CIO) {
-/*
+
         install(Logging) {
-            level = LogLevel.HEADERS
+            level = LogLevel.ALL
         }
         BrowserUserAgent() // install default browser-like user-agent
         // install(UserAgent) { agent = "some user agent" }
@@ -51,7 +72,6 @@ fun Application.module(testing: Boolean = false) {
             // threadsCount = 4
             pipelining = true
         }
-*/
     }
 
     routing {
@@ -86,6 +106,15 @@ fun Application.module(testing: Boolean = false) {
         get("/json/jackson") {
             call.respond(mapOf("hello" to "world"))
         }
+
+        get("/users") {
+             call.respond(mapOf("hello" to "world TEST"))
+            // call.respond(ResponseHelper().allUsers())
+        }
     }
 }
-
+/*
+val Application.envKind get() = environment.config.property("ktor.environment").getString()
+val Application.isDev get() = envKind == "dev"
+val Application.isProd get() = envKind != "dev"
+*/
