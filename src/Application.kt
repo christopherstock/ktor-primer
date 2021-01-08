@@ -108,8 +108,7 @@ fun Application.module(testing: Boolean = true) {
         }
 
         get("/users") {
-             call.respond(mapOf("hello" to "world TEST"))
-            // call.respond(ResponseHelper().allUsers())
+            call.respond(ResponseHelper().allUsers())
         }
     }
 }
