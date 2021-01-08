@@ -32,7 +32,7 @@ fun main(args: Array<String>) {
 */
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
-fun Application.module(testing: Boolean = true) {
+fun Application.module(testing: Boolean = false) {
 
     install(CallLogging) {
         level = Level.DEBUG
@@ -74,7 +74,7 @@ fun Application.module(testing: Boolean = true) {
 
     routing {
         get("/") {
-            call.respondText("HELLO WORLD!", contentType = ContentType.Text.Plain)
+            call.respondText("HELLO WORLD!!", contentType = ContentType.Text.Plain)
         }
 
         get("/html-dsl") {
