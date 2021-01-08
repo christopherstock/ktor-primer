@@ -4,19 +4,19 @@
 **ktor** ist ein von **JetBrains** entwickeltes Framework zur schnellen Realisierung von Web-Anwendungen oder Microservices.
 . for .. using Kotlin and Gradle.
 
+## Ein neues Projekt
 
-
-===
-
-Gradle Project Builder
-Gradle Logo
+### Gradle Project Builder
+![gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
 
 Online auf ktor.io ..:
 
 ====
 
+### IntelliJ Plugin
+![intelliJ](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-intellij.png)
+
 IntelliJ Plugin
-IntelliJ Logo
 zur schnellen Realisierung eines neuen ktor Projekts
 
 ====
@@ -37,18 +37,23 @@ Pain Points
   > Auto-Reload? => Fixed with 1.5 to 1.4
   > Swagger UI Support? - external github repo
 
+## Run
 
-## Bauen in Watch Mode
+### Bauen in Watch Mode
 ```
 gradlew build -t
 ```
 
-## Starten via Gradle Wrapper
+### Starten via Gradle Wrapper
 ```
 gradlew run
 ```
 
 ## Tests
+
+
+
+## API Generation
 
 Documentation?
   > Swagger?
