@@ -15,6 +15,9 @@ und ermöglicht die Realisierung von **Client-Server-Anwendungen** und **Microse
 Jetbrains hat Ktor Ende 2018 veröffentlicht. Die aktuelle Version 1.5 wurde im Dezember 2020 veröffentlicht.
 Ktor ist in der hauseigenen Programmiersprache Kotlin verfasst.
 
+> Ktor ist ein Kotlin Framework zum Erstellen von Webservern (und -clients).
+Auch wenn Spring mittlerweile gut mit Kotlin harmoniert und Kotlin bereits für viele (teilweise experimentelle) Spring-Features verwendet wird, lohnt es sich einen Blick auf Ktor zu werfen. Anders als Spring ist Ktor nämlich komplett in Kotlin geschrieben und kann deshalb Sprachfeatures wie Coroutines, reified Generics und Extension Functions viel effektiver nutzen als Spring.
+
 <hr>
 
 ## Koroutinen
@@ -26,7 +29,32 @@ Ktor ist in der hauseigenen Programmiersprache Kotlin verfasst.
 
 <hr>
 
+## Tech Stack
+
+- Ktor 1.4.0
+- Kotlin 1.4.21
+- JDK 1.8.0_251
+- IntelliJ 2020.3.1
+- IntelliJ Ktor Plugin 1.5.0
+
+<hr>
+
 ## Hello World
+Nachdem wir Ktor zu unserem Projekt in dessen `build.gradle` hinzugefügt habe
+```
+repositories {
+    ...
+    jcenter()
+}
+dependencies {
+    ...
+    implementation "io.ktor:ktor-server-core:1.0.0"
+    implementation "io.ktor:ktor-server-netty:1.0.0"
+}
+```
+
+kann es schon mit der main-Funktion losgehen.
+
 The Hello World of Ktor is small enough to fit in a tweet:
 ```
 fun main() {
