@@ -1,7 +1,11 @@
 # Ktor
 ![Ktor](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-ktor.png)
+> Am letzten MayDay habe ich mir das Framework Ktor von JetBrains angesehen. Hier ein kurzer Überblick über meinen
+ersten Eindruck und die ersten Schritte mit diesem Framework.
 
-## Was ist Kotlin?
+<hr>
+
+## Was ist Ktor?
 > **Ktor** ist ein von **JetBrains** entwickeltes high-level Framework zur schnellen Realisierung vernetzter,
 asnychroner Server- und Client-Anwendungen. Das end-to-end Multiplattform-Anwendungs-Framework wurde 
 für die Verwaltung von Webanwendungen, HTTP-Services sowie Mobile- und Browser-Anwendungen konzipiert
@@ -10,6 +14,8 @@ und ermöglicht die Realisierung von **Client-Server-Anwendungen** und **Microse
 > Es ist geschrieben in **Kotlin** und verwendet den Package Manager **Gradle**.
 Jetbrains hat Ktor Ende 2018 veröffentlicht. Die aktuelle Version 1.5 wurde im Dezember 2020 veröffentlicht.
 Ktor ist in der hauseigenen Programmiersprache Kotlin verfasst.
+
+<hr>
 
 ## Koroutinen
 > Ktor is built from the ground up using coroutines, which make it possible to express complex asynchronous constructs as if they were simple sequential code. Coroutines are also quite efficient at runtime. In addition, the use of Kotlin features allows us to provide a domain-specific language (DSL) — a concise and developer-friendly API for configuring your application with no magic, just code.
@@ -38,6 +44,8 @@ To go beyond that, the website provides a Quickstart guide, extensive documentat
 Hop over to https://start.ktor.io/ to get a project template, check out the docs, and your new backend will be up and running in no time! If you need help, the friendly folks on the #ktor channel on Kotlin Slack are there for you.
 
 Have a nice Ktor!
+
+<hr>
 
 ## Neues Projekt erstellen
 
@@ -113,6 +121,8 @@ developmentMode if off?
 Die initiale Anwendung verfügt bereits über einen Unit-Test im Verzeichnis `/test`.
 Diese können ..
 
+<hr>
+
 ## Features
 Ktor bietet unter anderem eine high-level API für die folgenden Use Cases:
 - get/post/put/list ?
@@ -120,15 +130,21 @@ Ktor bietet unter anderem eine high-level API für die folgenden Use Cases:
 - kotlin
 - fast dev for get, post ...
 
+<hr>
+
 ## API Generation
 ![Swagger](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-swagger.png)
 Documentation?
 > Swagger?
 
+<hr>
+
 ## Lots of Examples!
 Find lots of Ready to use Samples and sceleton sample app, like completed Chat Applications etc., on ktor.io
 
 [Samples on the Official Ktor Website](https://ktor.io/docs/samples.html)
+
+<hr>
 
 ## Fazit
 ![top](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/top.png)
