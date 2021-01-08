@@ -5,7 +5,7 @@ class ResponseHelper {
         val users :List<String> = listOf(
             "John Doe", "Jane Doe", "Peter Fox", "Adam Smith",
             "Laurence Walker", "DefJam Haskell", "Fritz Pearson",
-            "Christopher Stock"
+            // "Christopher Stock", "Katja Spangenberg",
         )
 
         return mapOf("users" to users)
