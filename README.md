@@ -6,7 +6,10 @@ Es ist geschrieben in **Kotlin** und verwendet den Package Manager **Gradle**.
 
 ## Neues Projekt erstellen
 
-### Gradle Project Builder
+Es gibt zwei Möglichkeiten, um ein vollständiges Grundgerüst für eine neue Ktor Applikation zu erstellen.
+Über den Online Projekt ..
+
+### Online Ktor Projekt Generator
 ![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
 > JetBrains bietet einen **Online Ktor Projekt Generator** in dem das neue Ktor-Projekt angepasst werden kann und
 das neue Gradle-Projekt dann als Grundlage für unser neues Projekt verwendet werden kann.
@@ -34,9 +37,20 @@ IntelliJ Plugin
 > new project
 > setup via Gradle
 
-Pain Points
-  > custom httpEngine! CIO
-  > Auto-Reload? => Fixed with 1.5 to 1.4
+## Pain Points
+
+### Set custom HttpEngine
+You need to set a custom httpEngine
+
+```
+HttpClient(CIO)
+```
+
+### Auto-Reload Problems in Ktor 1.5
+Fixed with 1.5 to 1.4
+```
+developmentMode if off?
+```
   > Swagger UI Support? - external github repo
 
 ## Bauen und Starten
@@ -64,6 +78,13 @@ http://0.0.0.0:8080/
 Die initiale Anwendung verfügt bereits über einen Unit-Test im Verzeichnis `/test`.
 Diese können ..
 
+## Features
+Ktor bietet unter anderem eine high-level API für die folgenden Use Cases:
+- get/post/put/list ?
+- 2
+- 3 
+
+
 ## API Generation
 Documentation?
 > Swagger?
@@ -72,6 +93,5 @@ Documentation?
 Find lots of Ready to use Samples and sceleton sample app, like completed Chat Applications etc., on ktor.io
 
 ## Fazit
-Der erste Eindruck war durchwegs positiv.
-
 ![top](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/top.png)
+> Der erste Eindruck von Ktor war durchwegs positiv.
