@@ -36,8 +36,9 @@ Für den MayDay Workshop wurde der folgende Tech Stack verwendet:
 
 <hr>
 
-# Hello World
-Nachdem wir Ktor zu unserem Projekt in dessen `build.gradle` hinzugefügt habe
+# Kotlin zu einem Gradle Projekt hinzufügen
+
+In ein bestehendes Gradle-Projekt kann Ktor sehr schnell eingeführt werden. Hierfür müssen lediglich die folgenden beiden Dependencies zur `build.gradle` hinzugefügt werden:
 ```
 repositories {
     ...
@@ -50,9 +51,10 @@ dependencies {
 }
 ```
 
-kann es schon mit der main-Funktion losgehen.
+## Hello World
 
-The Hello World of Ktor is small enough to fit in a tweet:
+> Schon kann Kotlin in einer neuen main-Funktion gestartet werden. Die **Ktor Hello World** ist sogar klein genug um in einen Tweet zu passen:
+
 ```
 fun main() {
     embeddedServer(Netty, port = 8080) {
@@ -64,14 +66,13 @@ fun main() {
     }.start(wait = true)
 }
 ```
-> To go beyond that, the website provides a Quickstart guide, extensive documentation for writing servers and clients, and many sample projects. If you prefer videos, Ryan Harter’s KotlinConf 2018 talk is a great introduction to using Ktor on the backend.
+> To go beyond that, the website provides a Quickstart guide, extensive documentation for writing servers and clients, and many sample projects.
 
 > Have a nice Ktor!
 
 <hr>
 
-
-# Neues Projekt erstellen
+# Ein neues Ktor Projekt erstellen
 
 > Es gibt zwei Möglichkeiten, um ein vollständiges Grundgerüst für eine neue Ktor Applikation zu erstellen.
 Über den Online Projekt ..
@@ -300,5 +301,6 @@ Find lots of Ready to use Samples and sceleton sample app, like completed Chat A
 <hr>
 
 # GitHub
+![GitHub](https://github.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-github.png)
 > Der vollständige Code zu meinem Testprojekt befindet sich auf Github.
 [ktor-primer auf GitHub](https://github.com/christopherstock/ktor-primer)
