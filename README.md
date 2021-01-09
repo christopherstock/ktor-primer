@@ -6,17 +6,11 @@ ersten Eindruck und die ersten Schritte mit diesem Framework.
 <hr>
 
 ## Was ist Ktor?
-> **Ktor** ist ein von **JetBrains** entwickeltes high-level Framework zur schnellen Realisierung vernetzter,
-asnychroner Server- und Client-Anwendungen. Das end-to-end Multiplattform-Anwendungs-Framework wurde 
-für die Verwaltung von Webanwendungen, HTTP-Services sowie Mobile- und Browser-Anwendungen konzipiert
-und ermöglicht die Realisierung von **Client-Server-Anwendungen** und **Microservices** in vernetzten Systemen.
+> **Ktor** ist ein von **JetBrains** entwickeltes high-level Framework zur schnellen Realisierung vernetzter, asnychroner Server- und Client-Anwendungen. Das end-to-end Multiplattform-Anwendungs-Framework wurde für die Verwaltung von Webanwendungen, HTTP-Services sowie Mobile- und Browser-Anwendungen konzipiert und ermöglicht die Realisierung von **Client-Server-Anwendungen** und **Microservices** in vernetzten Systemen.
 
-> Es ist geschrieben in **Kotlin** und verwendet den Package Manager **Gradle**.
-Jetbrains hat Ktor Ende 2018 veröffentlicht. Die aktuelle Version 1.5 wurde im Dezember 2020 veröffentlicht.
-Ktor ist in der hauseigenen Programmiersprache Kotlin verfasst.
+> Es ist geschrieben in **Kotlin** und verwendet den Package Manager **Gradle**. Jetbrains hat Ktor Ende 2018 veröffentlicht. Die aktuelle Version 1.5 wurde im Dezember 2020 veröffentlicht. Ktor ist in der hauseigenen Programmiersprache Kotlin verfasst.
 
-> Ktor ist ein Kotlin Framework zum Erstellen von Webservern (und -clients).
-Auch wenn Spring mittlerweile gut mit Kotlin harmoniert und Kotlin bereits für viele (teilweise experimentelle) Spring-Features verwendet wird, lohnt es sich einen Blick auf Ktor zu werfen. Anders als Spring ist Ktor nämlich komplett in Kotlin geschrieben und kann deshalb Sprachfeatures wie Coroutines, reified Generics und Extension Functions viel effektiver nutzen als Spring.
+> Ktor ist ein Kotlin Framework zum Erstellen von Webservern (und -clients). Auch wenn Spring mittlerweile gut mit Kotlin harmoniert und Kotlin bereits für viele (teilweise experimentelle) Spring-Features verwendet wird, lohnt es sich einen Blick auf Ktor zu werfen. Anders als Spring ist Ktor nämlich komplett in Kotlin geschrieben und kann deshalb Sprachfeatures wie Coroutines, reified Generics und Extension Functions viel effektiver nutzen als Spring.
 
 <hr>
 
@@ -67,18 +61,18 @@ fun main() {
     }.start(wait = true)
 }
 ```
-To go beyond that, the website provides a Quickstart guide, extensive documentation for writing servers and clients, and many sample projects. If you prefer videos, Ryan Harter’s KotlinConf 2018 talk is a great introduction to using Ktor on the backend.
+> To go beyond that, the website provides a Quickstart guide, extensive documentation for writing servers and clients, and many sample projects. If you prefer videos, Ryan Harter’s KotlinConf 2018 talk is a great introduction to using Ktor on the backend.
 
-Hop over to https://start.ktor.io/ to get a project template, check out the docs, and your new backend will be up and running in no time! If you need help, the friendly folks on the #ktor channel on Kotlin Slack are there for you.
+> Hop over to https://start.ktor.io/ to get a project template, check out the docs, and your new backend will be up and running in no time! If you need help, the friendly folks on the #ktor channel on Kotlin Slack are there for you.
 
-Have a nice Ktor!
+> Have a nice Ktor!
 
 <hr>
 
 ## Ein einfacher Webservice
 
-Routing über eine DSL (Domain Specific Language)
-Ein Server braucht Routen und die soll er jetzt auch bekommen. Ich muss dafür keinen Controller schreiben, sondern definiere diese über eine DSL:
+### Routing über eine DSL (Domain Specific Language)
+> Ein Server braucht Routen und die soll er jetzt auch bekommen. Ich muss dafür keinen Controller schreiben, sondern definiere diese über eine DSL:
 
 Die Application.module() wird nun an die main angeflantscht:
 
@@ -107,9 +101,9 @@ fun Application.module() {
 }
 ```
 
-Nachdem ich den Server gestartet habe, kann ein POST Request nach http://localhost:8080/fruits geschickt werden. Wenn dieser einen String, z.B. "Banane" im Body stehen hat, wird diese Banane zum fruitStash hinzugefügt. Ein GET auf dieselbe URL gibt dann diesen String (bzw. alle angelegten Früchte) wieder zurück.
+> Nachdem ich den Server gestartet habe, kann ein POST Request nach http://localhost:8080/fruits geschickt werden. Wenn dieser einen String, z.B. "Banane" im Body stehen hat, wird diese Banane zum fruitStash hinzugefügt. Ein GET auf dieselbe URL gibt dann diesen String (bzw. alle angelegten Früchte) wieder zurück.
 
-Stringly typed programming ist allerdings nicht so ganz mein Ding. Daher muss schnell ein Typ Fruit her.
+> Stringly typed programming ist allerdings nicht so ganz mein Ding. Daher muss schnell ein Typ Fruit her.
 
 ```
 data class Fruit(val name: String)
@@ -172,13 +166,13 @@ authenticate {
 }
 ```
 
-In diesem Beispiel habe ich mich für BasicAuth entschieden, aber auch OAuth, LDAP und andere werden von Haus aus unterstützt. Nach dem Set-up im install-Block dekoriere ich einfach die Routen mit einem authenticate, bei denen ich Authentifizierung nutzen möchte.
+> In diesem Beispiel habe ich mich für BasicAuth entschieden, aber auch OAuth, LDAP und andere werden von Haus aus unterstützt. Nach dem Set-up im install-Block dekoriere ich einfach die Routen mit einem authenticate, bei denen ich Authentifizierung nutzen möchte.
 
 <hr>
 
 ## Neues Projekt erstellen
 
-Es gibt zwei Möglichkeiten, um ein vollständiges Grundgerüst für eine neue Ktor Applikation zu erstellen.
+> Es gibt zwei Möglichkeiten, um ein vollständiges Grundgerüst für eine neue Ktor Applikation zu erstellen.
 Über den Online Projekt ..
 
 ### Online Ktor Projekt Generator
@@ -203,7 +197,7 @@ IntelliJ Plugin
 
 ## Bauen und Starten von Ktor via Gradle
 ![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
-Um Ktor zu bauen und zu verwenden einzurichten, wird Gradle verwendet. Der Gradle Wrapper
+> Um Ktor zu bauen und zu verwenden einzurichten, wird Gradle verwendet. Der Gradle Wrapper
 verwendet die designierte Gradle-Version für das Projekt und wird daher hier bevorzugt verwendet.
 
 ### Bauen mit Watch Mode
@@ -247,8 +241,8 @@ developmentMode if off?
 
 ## Tests
 ![jUnit5](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-junit5.png)
-Die initiale Anwendung verfügt bereits über einen Unit-Test im Verzeichnis `/test`.
-Diese können ..
+> Die initiale Anwendung verfügt bereits über einen Unit-Test im Verzeichnis `/test`.
+> Diese können ..
 
 <hr>
 
@@ -276,11 +270,11 @@ Find lots of Ready to use Samples and sceleton sample app, like completed Chat A
 <hr>
 
 ## Der Spring-Killer?
-Sicher bietet Spring Boot viel mehr Funktionalität und ist vermutlich auch flexibler. Aber gerade für kleine Projekte, Microservices oder Prototypen sehe ich durchaus großes Potenzial für Ktor.
+> Sicher bietet Spring Boot viel mehr Funktionalität und ist vermutlich auch flexibler. Aber gerade für kleine Projekte, Microservices oder Prototypen sehe ich durchaus großes Potenzial für Ktor.
 
-Das Zusammenbauen von Schnittstellen geht sehr schnell und man muss nicht mehrere Sekunden auf den Spring Context warten. Auch Reflection wird nur sparsam verwendet (wenn überhaupt) und die meisten Fehler erkennt man bereits zur Compile-Zeit. Die Online-Doku ist hervorragend. Die Developer Experience ist einfach flüssiger. Nicht dadurch, dass moderne Sprachfeatures von Kotlin genutzt werden. Klar – DSLs muss man mögen, Kotlin hat hier aber schlicht den Vorteil, dass es sich um interne DSLs (also normalen Code und keine Meta-Sprache) handelt.
+> Das Zusammenbauen von Schnittstellen geht sehr schnell und man muss nicht mehrere Sekunden auf den Spring Context warten. Auch Reflection wird nur sparsam verwendet (wenn überhaupt) und die meisten Fehler erkennt man bereits zur Compile-Zeit. Die Online-Doku ist hervorragend. Die Developer Experience ist einfach flüssiger. Nicht dadurch, dass moderne Sprachfeatures von Kotlin genutzt werden. Klar – DSLs muss man mögen, Kotlin hat hier aber schlicht den Vorteil, dass es sich um interne DSLs (also normalen Code und keine Meta-Sprache) handelt.
 
-Der vollständige Code befindet sich auf Github, die Dokumentation gibt es hier.
+> Der vollständige Code befindet sich auf Github, die Dokumentation gibt es hier.
 
 ## Fazit
 ![top](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/top.png)
