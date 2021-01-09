@@ -1,23 +1,21 @@
 # Ktor
 ![Ktor](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-ktor.png)
-> Am letzten MayDay habe ich mir das Framework Ktor von JetBrains angesehen. Hier ein kurzer Bericht über meinen ersten Eindruck und meine ersten Schritte mit diesem Framework.
+> Am [letzten MayDay](https://confluence.mayflower.de/display/MAYD/MayDay+2021-01-08) habe ich mir das Framework Ktor von JetBrains angesehen. Hier ein kleiner Erfahrungsbericht über den ersten Eindruck und meine ersten Schritte mit diesem Framework.
 
 <hr>
 
-## Was ist Ktor?
+# Was ist Ktor?
 ![JetBrains](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-jetbrains.png)
-> **Ktor** ist ein von **JetBrains** entwickeltes high-level Framework zur Erstellung vernetzter, asnychroner Server- und Client-Anwendungen. Das end-to-end Multiplattform-Anwendungs-Framework wurde für die Verwaltung von Webanwendungen, HTTP-Services sowie Mobile- und Browser-Anwendungen konzipiert und ermöglicht eine schnelle Realisierung von **Client-Server-Anwendungen** und **Microservices** in vernetzten Systemen.
+> **Ktor** ist ein von **JetBrains** entwickeltes high-level Framework zur Erstellung vernetzter, asnychroner Webserver- und Webclient-Anwendungen. Das end-to-end Multiplattform-Anwendungs-Framework wurde für die Verwaltung von Webanwendungen, HTTP-Services sowie Mobile- und Browser-Anwendungen konzipiert und ermöglicht eine schnelle Realisierung von **Client-Server-Anwendungen** und **Microservices** in vernetzten Systemen. Jetbrains hat Ktor Ende 2018 veröffentlicht. Die aktuelle Version 1.5 wurde im Dezember 2020 veröffentlicht.
 
-> Ktor ist ein Kotlin Framework zum Erstellen von Webservern (und -clients). Auch wenn Spring mittlerweile gut mit Kotlin harmoniert und Kotlin bereits für viele (teilweise experimentelle) Spring-Features verwendet wird, lohnt es sich einen Blick auf Ktor zu werfen.
-
-## Ktor verwendet Kotlin und Gradle
+# Ktor verwendet Kotlin und Gradle
 ![Kotlin](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-kotlin.png)
 ![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
-> Ktor ist in der hauseigenen Programmiersprache **Kotlin** verfasst, die zahlreiche moderne Sprachfeatures bietet. Als Package Manager wird **Gradle** verwendet. Jetbrains hat Ktor Ende 2018 veröffentlicht. Die aktuelle Version 1.5 wurde im Dezember 2020 veröffentlicht. 
+> Ktor ist in der hauseigenen Programmiersprache **Kotlin** verfasst, die zahlreiche moderne Sprachfeatures bietet. Als Package Manager wird **Gradle** verwendet. 
 
 <hr>
 
-## Koroutinen
+# Koroutinen
 > Ktor is built from the ground up using coroutines, which make it possible to express complex asynchronous constructs as if they were simple sequential code. Coroutines are also quite efficient at runtime. In addition, the use of Kotlin features allows us to provide a domain-specific language (DSL) — a concise and developer-friendly API for configuring your application with no magic, just code.
 
 > Of course, Ktor is not the only option for building server-side applications in Kotlin. We’re pleased to see that other frameworks such as Spring and Vert.x are providing first-class support for Kotlin.
@@ -26,7 +24,7 @@
 
 <hr>
 
-## Workshop Tech Stack
+# Workshop Tech Stack
 
 Für den MayDay Workshop wurde der folgende Tech Stack verwendet:
 
@@ -38,7 +36,7 @@ Für den MayDay Workshop wurde der folgende Tech Stack verwendet:
 
 <hr>
 
-## Hello World
+# Hello World
 Nachdem wir Ktor zu unserem Projekt in dessen `build.gradle` hinzugefügt habe
 ```
 repositories {
@@ -73,12 +71,12 @@ fun main() {
 <hr>
 
 
-## Neues Projekt erstellen
+# Neues Projekt erstellen
 
 > Es gibt zwei Möglichkeiten, um ein vollständiges Grundgerüst für eine neue Ktor Applikation zu erstellen.
 Über den Online Projekt ..
 
-### Online Ktor Projekt Generator
+## Online Ktor Projekt Generator
 ![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
 > JetBrains bietet einen **Online Ktor Projekt Generator** in dem das neue Ktor-Projekt angepasst werden kann und
 das neue Gradle-Projekt dann als Grundlage für unser neues Projekt verwendet werden kann.
@@ -88,7 +86,7 @@ Das Projekt kann dirket danach runtergeladenen und in IntelliJ geöffnet werden.
 
 > Hop over to https://start.ktor.io/ to get a project template, check out the docs, and your new backend will be up and running in no time! If you need help, the friendly folks on the #ktor channel on Kotlin Slack are there for you.
 
-### IntelliJ Plugin
+## IntelliJ Plugin
 ![IntelliJ](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-intellij.png)
 > Die gleiche Funktionalität bietet das Ktor Plugin für IntelliJ:
 zur schnellen Realisierung eines neuen ktor Projekts#
@@ -100,25 +98,25 @@ IntelliJ Plugin
 
 <hr>
 
-## Bauen und Starten von Ktor via Gradle
+# Bauen und Starten von Ktor via Gradle
 ![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
 > Um Ktor zu bauen und zu verwenden einzurichten, wird Gradle verwendet. Der Gradle Wrapper
 verwendet die designierte Gradle-Version für das Projekt und wird daher hier bevorzugt verwendet.
 
-### Bauen mit Watch Mode
+## Bauen mit Watch Mode
 In einem neuen Befehl kann das Projekt mit dem folgenden Befehl gebaut werden:
 ```
 gradlew build -t
 ```
 Die Option `-t` sorgt dafür, dass Gradle automatisch neu kompiliert, sobald an den Quellcodes Änderungen durchgeführt werden.
 
-### Starten via Gradle Wrapper
+## Starten via Gradle Wrapper
 Mit dem folgenden Befehl kann parallel zum Bauen der aktuell gebaute Stand des Projekts betrieben werden:
 ```
 gradlew run
 ```
 
-### Testen im Frontend
+## Testen im Frontend
 Anschließend kann unsere Ktor-Testanwendung über die folgende Adresse angesprochen werden:
 ```
 http://0.0.0.0:8080/
@@ -126,9 +124,9 @@ http://0.0.0.0:8080/
 
 <hr>
 
-## Ein einfacher Webservice
+# Ein einfacher Webservice
 
-### Routing über eine DSL (Domain Specific Language)
+## Routing über eine DSL (Domain Specific Language)
 > Ein Server braucht Routen und die soll er jetzt auch bekommen. Ich muss dafür keinen Controller schreiben, sondern definiere diese über eine DSL:
 
 Die Application.module() wird nun an die main angeflantscht:
@@ -183,14 +181,14 @@ Ein POST mit dem Body {"name":"banane"} wird jetzt sicher das Stück Obst in mei
 
 <hr>
 
-## Modulares Hinzufügen von Features
+# Modulares Hinzufügen von Features
 
-### Content Negotiation
+## Content Negotiation
 
 Jackson zum Serialisieren
 
 
-### Authentifizierung
+## Authentifizierung
 
 Authentication
 Natürlich möchte ich nur registrierten Nutzern erlauben Ressourcen anzulegen. Dafür benutze ich – richtig geraten – ein Feature.
@@ -227,16 +225,16 @@ authenticate {
 
 <hr>
 
-## Pain Points
+# Pain Points
 Die folgenden Punkte musste ich erst rausfinden, bevor das Framework einwandfrei betrieben werden konnte:
 
-### Eigene HttpEngine verwenden
+## Eigene HttpEngine verwenden
 You need to set a custom httpEngine
 ```
 HttpClient(CIO)
 ```
 
-### Auto-Reload Problems in Ktor 1.5
+## Auto-Reload Problems in Ktor 1.5
 Fixed with 1.5 to 1.4
 ```
 developmentMode if off?
@@ -245,14 +243,27 @@ developmentMode if off?
 
 <hr>
 
-## Tests
+# Unit Tests
 ![jUnit5](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-junit5.png)
-> Die initiale Anwendung verfügt bereits über einen Unit-Test im Verzeichnis `/test`.
-> Diese können ..
+> Die initiale Anwendung verfügt bereits über einen Unit-Test im Verzeichnis `/test`. Die Definition der Tests ist relativ straight-forward. Die gute Lesbarkeit von Kotlin und jUnit5 ermöglicht eine schnelle Erweiterbarkeit:
+
+```
+class ApplicationTest {
+    @Test
+    fun testRoot() {
+        withTestApplication({ module(testing = true) }) {
+            handleRequest(HttpMethod.Get, "/").apply {
+                assertEquals(HttpStatusCode.OK, response.status())
+                assertEquals("HELLO WORLD!!", response.content)
+            }
+        }
+    }
+}
+```
 
 <hr>
 
-## Features
+# Features
 Ktor bietet unter anderem eine high-level API für die folgenden Use Cases:
 - get/post/put/list ?
 - Server Web Framework
@@ -261,33 +272,33 @@ Ktor bietet unter anderem eine high-level API für die folgenden Use Cases:
 
 <hr>
 
-## API Generation
+# API Generation
 ![Swagger](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-swagger.png)
 Documentation?
 > Swagger?
 
 <hr>
 
-## Lots of Examples!
+# Jede Menge Ktor Beispiele!
 Find lots of Ready to use Samples and sceleton sample app, like completed Chat Applications etc., on ktor.io
 
 [Samples on the Official Ktor Website](https://ktor.io/docs/samples.html)
 
 <hr>
 
-## Ktor im Vergleich mit Spring Boot
+# Ktor im Vergleich mit Spring Boot
 > Sicher bietet Spring Boot viel mehr Funktionalität und ist vermutlich auch flexibler. Aber gerade für kleine Projekte, Microservices oder Prototypen sehe ich durchaus großes Potenzial für Ktor.
 
 > Anders als Spring ist Ktor nämlich komplett in Kotlin geschrieben und kann deshalb Sprachfeatures wie Coroutines, reified Generics und Extension Functions viel effektiver nutzen als Spring.
 
 > Das Zusammenbauen von Schnittstellen geht sehr schnell und man muss nicht mehrere Sekunden auf den Spring Context warten. Auch Reflection wird nur sparsam verwendet (wenn überhaupt) und die meisten Fehler erkennt man bereits zur Compile-Zeit. Die Online-Doku ist hervorragend. Die Developer Experience ist einfach flüssiger. Klar – DSLs muss man mögen, Kotlin hat hier aber schlicht den Vorteil, dass es sich um interne DSLs (also normalen Code und keine Meta-Sprache) handelt.
 
-## Fazit
+# Fazit
 ![top](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/top.png)
 > Der erste Eindruck von Ktor war durchwegs positiv.
 
 <hr>
 
-## GitHub
+# GitHub
 > Der vollständige Code zu meinem Testprojekt befindet sich auf Github.
 [ktor-primer auf GitHub](https://github.com/christopherstock/ktor-primer)
