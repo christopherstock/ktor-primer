@@ -1,25 +1,28 @@
 # Ktor
 ![Ktor](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-ktor.png)
-> Am letzten MayDay habe ich mir das Framework Ktor von JetBrains angesehen. Hier ein kurzer Überblick über meinen
-ersten Eindruck und die ersten Schritte mit diesem Framework.
+> Am letzten MayDay habe ich mir das Framework Ktor von JetBrains angesehen. Hier ein kurzer Bericht über meinen ersten Eindruck und meine ersten Schritte mit diesem Framework.
 
 <hr>
 
 ## Was ist Ktor?
-> **Ktor** ist ein von **JetBrains** entwickeltes high-level Framework zur schnellen Realisierung vernetzter, asnychroner Server- und Client-Anwendungen. Das end-to-end Multiplattform-Anwendungs-Framework wurde für die Verwaltung von Webanwendungen, HTTP-Services sowie Mobile- und Browser-Anwendungen konzipiert und ermöglicht die Realisierung von **Client-Server-Anwendungen** und **Microservices** in vernetzten Systemen.
-
-> Es ist geschrieben in **Kotlin** und verwendet den Package Manager **Gradle**. Jetbrains hat Ktor Ende 2018 veröffentlicht. Die aktuelle Version 1.5 wurde im Dezember 2020 veröffentlicht. Ktor ist in der hauseigenen Programmiersprache Kotlin verfasst.
+![JetBrains](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-jetbrains.png)
+> **Ktor** ist ein von **JetBrains** entwickeltes high-level Framework zur Erstellung vernetzter, asnychroner Server- und Client-Anwendungen. Das end-to-end Multiplattform-Anwendungs-Framework wurde für die Verwaltung von Webanwendungen, HTTP-Services sowie Mobile- und Browser-Anwendungen konzipiert und ermöglicht eine schnelle Realisierung von **Client-Server-Anwendungen** und **Microservices** in vernetzten Systemen.
 
 > Ktor ist ein Kotlin Framework zum Erstellen von Webservern (und -clients). Auch wenn Spring mittlerweile gut mit Kotlin harmoniert und Kotlin bereits für viele (teilweise experimentelle) Spring-Features verwendet wird, lohnt es sich einen Blick auf Ktor zu werfen. Anders als Spring ist Ktor nämlich komplett in Kotlin geschrieben und kann deshalb Sprachfeatures wie Coroutines, reified Generics und Extension Functions viel effektiver nutzen als Spring.
+
+## Kotlin und Gradle?
+![Kotlin](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-kotlin.png)
+![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
+> Es ist geschrieben in **Kotlin** und verwendet den Package Manager **Gradle**. Jetbrains hat Ktor Ende 2018 veröffentlicht. Die aktuelle Version 1.5 wurde im Dezember 2020 veröffentlicht. Ktor ist in der hauseigenen Programmiersprache Kotlin verfasst.
 
 <hr>
 
 ## Koroutinen
 > Ktor is built from the ground up using coroutines, which make it possible to express complex asynchronous constructs as if they were simple sequential code. Coroutines are also quite efficient at runtime. In addition, the use of Kotlin features allows us to provide a domain-specific language (DSL) — a concise and developer-friendly API for configuring your application with no magic, just code.
 
-> Of course, Ktor is not the only option for building server-side applications in Kotlin. We’re pleased to see that other frameworks such as Spring and Vert.x are providing first-class support for Kotlin, and using these frameworks is a great way to preserve your existing investment and experience. At the same time, Ktor offers unique advantages thanks to its use of coroutines and DSLs, which makes it a great option when you’re starting a new backend project or a microservice.
+> Of course, Ktor is not the only option for building server-side applications in Kotlin. We’re pleased to see that other frameworks such as Spring and Vert.x are providing first-class support for Kotlin.
 
-> Ktor is already deployed in production in a number of projects running at scale. For example, HLTV.org serves about 200 million pageviews per month and about 3.1 billion pageviews in total on Ktor. The latest release of the ThoughtWorks Technology Radar lists Ktor in their Assess category.
+> Ktor offers unique advantages thanks to its use of coroutines and DSLs, which makes it a great option when you’re starting a new backend project or a microservice.
 
 <hr>
 
