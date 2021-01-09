@@ -8,12 +8,12 @@
 ![JetBrains](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-jetbrains.png)
 > **Ktor** ist ein von **JetBrains** entwickeltes high-level Framework zur Erstellung vernetzter, asnychroner Server- und Client-Anwendungen. Das end-to-end Multiplattform-Anwendungs-Framework wurde für die Verwaltung von Webanwendungen, HTTP-Services sowie Mobile- und Browser-Anwendungen konzipiert und ermöglicht eine schnelle Realisierung von **Client-Server-Anwendungen** und **Microservices** in vernetzten Systemen.
 
-> Ktor ist ein Kotlin Framework zum Erstellen von Webservern (und -clients). Auch wenn Spring mittlerweile gut mit Kotlin harmoniert und Kotlin bereits für viele (teilweise experimentelle) Spring-Features verwendet wird, lohnt es sich einen Blick auf Ktor zu werfen. Anders als Spring ist Ktor nämlich komplett in Kotlin geschrieben und kann deshalb Sprachfeatures wie Coroutines, reified Generics und Extension Functions viel effektiver nutzen als Spring.
+> Ktor ist ein Kotlin Framework zum Erstellen von Webservern (und -clients). Auch wenn Spring mittlerweile gut mit Kotlin harmoniert und Kotlin bereits für viele (teilweise experimentelle) Spring-Features verwendet wird, lohnt es sich einen Blick auf Ktor zu werfen.
 
-## Kotlin und Gradle?
+## Ktor verwendet Kotlin und Gradle
 ![Kotlin](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-kotlin.png)
 ![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
-> Es ist geschrieben in **Kotlin** und verwendet den Package Manager **Gradle**. Jetbrains hat Ktor Ende 2018 veröffentlicht. Die aktuelle Version 1.5 wurde im Dezember 2020 veröffentlicht. Ktor ist in der hauseigenen Programmiersprache Kotlin verfasst.
+> Ktor ist in der hauseigenen Programmiersprache **Kotlin** verfasst, die zahlreiche moderne Sprachfeatures bietet. Als Package Manager wird **Gradle** verwendet. Jetbrains hat Ktor Ende 2018 veröffentlicht. Die aktuelle Version 1.5 wurde im Dezember 2020 veröffentlicht. 
 
 <hr>
 
@@ -26,7 +26,9 @@
 
 <hr>
 
-## Tech Stack
+## Workshop Tech Stack
+
+Für den MayDay Workshop wurde der folgende Tech Stack verwendet:
 
 - Ktor 1.4.0
 - Kotlin 1.4.21
@@ -66,9 +68,61 @@ fun main() {
 ```
 > To go beyond that, the website provides a Quickstart guide, extensive documentation for writing servers and clients, and many sample projects. If you prefer videos, Ryan Harter’s KotlinConf 2018 talk is a great introduction to using Ktor on the backend.
 
+> Have a nice Ktor!
+
+<hr>
+
+
+## Neues Projekt erstellen
+
+> Es gibt zwei Möglichkeiten, um ein vollständiges Grundgerüst für eine neue Ktor Applikation zu erstellen.
+Über den Online Projekt ..
+
+### Online Ktor Projekt Generator
+![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
+> JetBrains bietet einen **Online Ktor Projekt Generator** in dem das neue Ktor-Projekt angepasst werden kann und
+das neue Gradle-Projekt dann als Grundlage für unser neues Projekt verwendet werden kann.
+https://start.ktor.io/#
+Nicht aktivierte Server- oder Client-Extensions können jederzeit später nachinstalliert werden. 
+Das Projekt kann dirket danach runtergeladenen und in IntelliJ geöffnet werden.
+
 > Hop over to https://start.ktor.io/ to get a project template, check out the docs, and your new backend will be up and running in no time! If you need help, the friendly folks on the #ktor channel on Kotlin Slack are there for you.
 
-> Have a nice Ktor!
+### IntelliJ Plugin
+![IntelliJ](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-intellij.png)
+> Die gleiche Funktionalität bietet das Ktor Plugin für IntelliJ:
+zur schnellen Realisierung eines neuen ktor Projekts#
+Wird neu angelegt und direkt darauf in IntelliJ geöffnet.
+
+IntelliJ Plugin
+> new project
+> setup via Gradle
+
+<hr>
+
+## Bauen und Starten von Ktor via Gradle
+![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
+> Um Ktor zu bauen und zu verwenden einzurichten, wird Gradle verwendet. Der Gradle Wrapper
+verwendet die designierte Gradle-Version für das Projekt und wird daher hier bevorzugt verwendet.
+
+### Bauen mit Watch Mode
+In einem neuen Befehl kann das Projekt mit dem folgenden Befehl gebaut werden:
+```
+gradlew build -t
+```
+Die Option `-t` sorgt dafür, dass Gradle automatisch neu kompiliert, sobald an den Quellcodes Änderungen durchgeführt werden.
+
+### Starten via Gradle Wrapper
+Mit dem folgenden Befehl kann parallel zum Bauen der aktuell gebaute Stand des Projekts betrieben werden:
+```
+gradlew run
+```
+
+### Testen im Frontend
+Anschließend kann unsere Ktor-Testanwendung über die folgende Adresse angesprochen werden:
+```
+http://0.0.0.0:8080/
+```
 
 <hr>
 
@@ -173,57 +227,6 @@ authenticate {
 
 <hr>
 
-## Neues Projekt erstellen
-
-> Es gibt zwei Möglichkeiten, um ein vollständiges Grundgerüst für eine neue Ktor Applikation zu erstellen.
-Über den Online Projekt ..
-
-### Online Ktor Projekt Generator
-![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
-> JetBrains bietet einen **Online Ktor Projekt Generator** in dem das neue Ktor-Projekt angepasst werden kann und
-das neue Gradle-Projekt dann als Grundlage für unser neues Projekt verwendet werden kann.
-https://start.ktor.io/#
-Nicht aktivierte Server- oder Client-Extensions können jederzeit später nachinstalliert werden. 
-Das Projekt kann dirket danach runtergeladenen und in IntelliJ geöffnet werden.
-
-### IntelliJ Plugin
-![IntelliJ](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-intellij.png)
-> Die gleiche Funktionalität bietet das Ktor Plugin für IntelliJ:
-zur schnellen Realisierung eines neuen ktor Projekts#
-Wird neu angelegt und direkt darauf in IntelliJ geöffnet.
-
-IntelliJ Plugin
-> new project
-> setup via Gradle
-
-<hr>
-
-## Bauen und Starten von Ktor via Gradle
-![Gradle](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-gradle.png)
-> Um Ktor zu bauen und zu verwenden einzurichten, wird Gradle verwendet. Der Gradle Wrapper
-verwendet die designierte Gradle-Version für das Projekt und wird daher hier bevorzugt verwendet.
-
-### Bauen mit Watch Mode
-In einem neuen Befehl kann das Projekt mit dem folgenden Befehl gebaut werden:
-```
-gradlew build -t
-```
-Die Option `-t` sorgt dafür, dass Gradle automatisch neu kompiliert, sobald an den Quellcodes Änderungen durchgeführt werden.
-
-### Starten via Gradle Wrapper
-Mit dem folgenden Befehl kann parallel zum Bauen der aktuell gebaute Stand des Projekts betrieben werden:
-```
-gradlew run
-```
-
-### Testen im Frontend
-Anschließend kann unsere Ktor-Testanwendung über die folgende Adresse angesprochen werden:
-```
-http://0.0.0.0:8080/
-```
-
-<hr>
-
 ## Pain Points
 Die folgenden Punkte musste ich erst rausfinden, bevor das Framework einwandfrei betrieben werden konnte:
 
@@ -272,13 +275,19 @@ Find lots of Ready to use Samples and sceleton sample app, like completed Chat A
 
 <hr>
 
-## Der Spring-Killer?
+## Ktor im Vergleich mit Spring Boot
 > Sicher bietet Spring Boot viel mehr Funktionalität und ist vermutlich auch flexibler. Aber gerade für kleine Projekte, Microservices oder Prototypen sehe ich durchaus großes Potenzial für Ktor.
 
-> Das Zusammenbauen von Schnittstellen geht sehr schnell und man muss nicht mehrere Sekunden auf den Spring Context warten. Auch Reflection wird nur sparsam verwendet (wenn überhaupt) und die meisten Fehler erkennt man bereits zur Compile-Zeit. Die Online-Doku ist hervorragend. Die Developer Experience ist einfach flüssiger. Nicht dadurch, dass moderne Sprachfeatures von Kotlin genutzt werden. Klar – DSLs muss man mögen, Kotlin hat hier aber schlicht den Vorteil, dass es sich um interne DSLs (also normalen Code und keine Meta-Sprache) handelt.
+> Anders als Spring ist Ktor nämlich komplett in Kotlin geschrieben und kann deshalb Sprachfeatures wie Coroutines, reified Generics und Extension Functions viel effektiver nutzen als Spring.
 
-> Der vollständige Code befindet sich auf Github, die Dokumentation gibt es hier.
+> Das Zusammenbauen von Schnittstellen geht sehr schnell und man muss nicht mehrere Sekunden auf den Spring Context warten. Auch Reflection wird nur sparsam verwendet (wenn überhaupt) und die meisten Fehler erkennt man bereits zur Compile-Zeit. Die Online-Doku ist hervorragend. Die Developer Experience ist einfach flüssiger. Klar – DSLs muss man mögen, Kotlin hat hier aber schlicht den Vorteil, dass es sich um interne DSLs (also normalen Code und keine Meta-Sprache) handelt.
 
 ## Fazit
 ![top](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/top.png)
 > Der erste Eindruck von Ktor war durchwegs positiv.
+
+<hr>
+
+## GitHub
+> Der vollständige Code zu meinem Testprojekt befindet sich auf Github.
+[ktor-primer auf GitHub](https://github.com/christopherstock/ktor-primer)
