@@ -38,7 +38,7 @@ Für den MayDay Workshop wurde der folgende Tech Stack verwendet:
 
 # Kotlin zu einem Gradle Projekt hinzufügen
 
-In ein bestehendes Gradle-Projekt kann Ktor sehr schnell eingeführt werden. Hierfür müssen lediglich die folgenden beiden Dependencies zur `build.gradle` hinzugefügt werden:
+> In ein bestehendes Gradle-Projekt kann Ktor sehr schnell eingeführt werden. Hierfür müssen lediglich die folgenden beiden Dependencies zur `build.gradle` hinzugefügt werden:
 ```
 repositories {
     ...
@@ -66,9 +66,11 @@ fun main() {
     }.start(wait = true)
 }
 ```
-> To go beyond that, the website provides a Quickstart guide, extensive documentation for writing servers and clients, and many sample projects.
+> Die offizielle Ktor Webseite von JetBrains bietet zudem einen schnellen Start und eine gute Dokumentation über alle Features und Anwendungsfälle des Frameworks sowie Codebeispiele:
 
-> Have a nice Ktor!
+[Ktor Dokumentation](https://ktor.io/docs/welcome.html)
+
+> Und schon kann's mit Ktor loggehen!
 
 <hr>
 
@@ -301,6 +303,6 @@ Find lots of Ready to use Samples and sceleton sample app, like completed Chat A
 <hr>
 
 # GitHub
-![GitHub](https://github.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-github.png)
+![GitHub](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/logo-github.png)
 > Der vollständige Code zu meinem Testprojekt befindet sich auf Github.
 [ktor-primer auf GitHub](https://github.com/christopherstock/ktor-primer)
