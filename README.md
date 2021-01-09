@@ -75,6 +75,107 @@ Have a nice Ktor!
 
 <hr>
 
+## Ein einfacher Webservice
+
+Routing über eine DSL (Domain Specific Language)
+Ein Server braucht Routen und die soll er jetzt auch bekommen. Ich muss dafür keinen Controller schreiben, sondern definiere diese über eine DSL:
+
+Die Application.module() wird nun an die main angeflantscht:
+
+```
+fun main(args: Array<String>) {
+    embeddedServer(
+            factory = Netty,
+            port = 8080,
+            module = Application::module
+    ).start(wait = true)
+}
+```
+
+```
+fun Application.module() {
+    val fruitStash = mutableListOf<String>()
+    routing {
+        post("/fruits") {
+            fruitStash.add(call.receive<String>())
+            call.respond(HttpStatusCode.Created)
+        }
+        get("/fruits") {
+            call.respond(fruitStash)
+        }
+    }
+}
+```
+
+Nachdem ich den Server gestartet habe, kann ein POST Request nach http://localhost:8080/fruits geschickt werden. Wenn dieser einen String, z.B. "Banane" im Body stehen hat, wird diese Banane zum fruitStash hinzugefügt. Ein GET auf dieselbe URL gibt dann diesen String (bzw. alle angelegten Früchte) wieder zurück.
+
+Stringly typed programming ist allerdings nicht so ganz mein Ding. Daher muss schnell ein Typ Fruit her.
+
+```
+data class Fruit(val name: String)
+
+fun Application.module() {
+    val fruitStash = mutableListOf<Fruit>()
+    routing {
+        post("/fruits") {
+            fruitStash.add(call.receive<Fruit>())
+            call.respond(Created)
+        }
+        get("/fruits") {
+            call.respond(fruitStash)
+        }
+    }
+}
+```
+
+Ein POST mit dem Body {"name":"banane"} wird jetzt sicher das Stück Obst in meinem Service anlegen.
+
+<hr>
+
+## Modulares Hinzufügen von Features
+
+### Content Negotiation
+
+Jackson zum Serialisieren
+
+
+### Authentifizierung
+
+Authentication
+Natürlich möchte ich nur registrierten Nutzern erlauben Ressourcen anzulegen. Dafür benutze ich – richtig geraten – ein Feature.
+
+```
+dependencies {
+    ...
+    implementation "io.ktor:ktor-auth:1.0.0"
+}
+```
+
+
+```
+install(Authentication) {
+    basic {
+        validate { (name, password) ->
+            if(name == "lovis" && password == "cc hamburg") { 
+                UserIdPrincipal(name)
+            } else {
+                null
+            }
+        }
+    }
+}
+...
+authenticate {
+    post("/fruits") {
+        ...
+    }
+}
+```
+
+In diesem Beispiel habe ich mich für BasicAuth entschieden, aber auch OAuth, LDAP und andere werden von Haus aus unterstützt. Nach dem Set-up im install-Block dekoriere ich einfach die Routen mit einem authenticate, bei denen ich Authentifizierung nutzen möchte.
+
+<hr>
+
 ## Neues Projekt erstellen
 
 Es gibt zwei Möglichkeiten, um ein vollständiges Grundgerüst für eine neue Ktor Applikation zu erstellen.
@@ -173,6 +274,13 @@ Find lots of Ready to use Samples and sceleton sample app, like completed Chat A
 [Samples on the Official Ktor Website](https://ktor.io/docs/samples.html)
 
 <hr>
+
+## Der Spring-Killer?
+Sicher bietet Spring Boot viel mehr Funktionalität und ist vermutlich auch flexibler. Aber gerade für kleine Projekte, Microservices oder Prototypen sehe ich durchaus großes Potenzial für Ktor.
+
+Das Zusammenbauen von Schnittstellen geht sehr schnell und man muss nicht mehrere Sekunden auf den Spring Context warten. Auch Reflection wird nur sparsam verwendet (wenn überhaupt) und die meisten Fehler erkennt man bereits zur Compile-Zeit. Die Online-Doku ist hervorragend. Die Developer Experience ist einfach flüssiger. Nicht dadurch, dass moderne Sprachfeatures von Kotlin genutzt werden. Klar – DSLs muss man mögen, Kotlin hat hier aber schlicht den Vorteil, dass es sich um interne DSLs (also normalen Code und keine Meta-Sprache) handelt.
+
+Der vollständige Code befindet sich auf Github, die Dokumentation gibt es hier.
 
 ## Fazit
 ![top](https://raw.githubusercontent.com/christopherstock/ktor-primer/main/_ASSET/readme/top.png)
