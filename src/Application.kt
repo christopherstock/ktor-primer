@@ -15,9 +15,12 @@ import io.ktor.jackson.*
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.features.logging.*
+import io.ktor.request.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import org.slf4j.event.Level
+
+data class Employee(val name: String)
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 /*
@@ -73,6 +76,8 @@ fun Application.module(testing: Boolean = false) {
         }
     }
 */
+    val employeeStack = mutableListOf<Employee>()
+
     routing {
         get("/") {
             call.respondText("Hello World!", contentType = ContentType.Text.Plain)
@@ -92,7 +97,7 @@ fun Application.module(testing: Boolean = false) {
         }
 
         authenticate("myBasicAuth") {
-            get("/protected/route/basic") {
+            get("/protected") {
                 val principal = call.principal<UserIdPrincipal>()!!
                 call.respondText("Hello ${principal.name}")
             }
@@ -108,6 +113,14 @@ fun Application.module(testing: Boolean = false) {
 
         get("/users") {
             call.respond(ResponseHelper().allUsers())
+        }
+
+        post("/employee") {
+            employeeStack.add(call.receive())
+            call.respond(HttpStatusCode.Created)
+        }
+        get("/employee") {
+            call.respond(employeeStack)
         }
     }
 }
