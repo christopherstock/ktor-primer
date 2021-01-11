@@ -59,8 +59,9 @@ fun Application.module(testing: Boolean = false) {
         }
     }
 
+    // val client = HttpClient()
+/*
     val client = HttpClient(CIO) {
-
         install(Logging) {
             level = LogLevel.ALL
         }
@@ -71,10 +72,10 @@ fun Application.module(testing: Boolean = false) {
             // pipelining = true
         }
     }
-
+*/
     routing {
         get("/") {
-            call.respondText("HELLO WORLD!!", contentType = ContentType.Text.Plain)
+            call.respondText("Hello World!", contentType = ContentType.Text.Plain)
         }
 
         get("/html-dsl") {
