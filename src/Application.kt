@@ -104,7 +104,15 @@ fun Application.module(testing: Boolean = false) {
         }
 
         get("/json/gson") {
-            call.respond(mapOf("hello" to "world"))
+            call.respond(
+                mapOf(
+                    "status" to "success",
+                    "value" to mapOf(
+                        "id" to 51,
+                        "joke" to "The quickest way to a man's heart is with Chuck Norris' fist."
+                    )
+                )
+            )
         }
 
         get("/json/jackson") {
@@ -114,7 +122,6 @@ fun Application.module(testing: Boolean = false) {
         get("/users") {
             call.respond(ResponseHelper().allUsers())
         }
-
         post("/employee") {
             employeeStack.add(call.receive())
             call.respond(HttpStatusCode.Created)
